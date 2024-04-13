@@ -70,11 +70,12 @@ const Demo = () => {
         <Button title="Generate new Key" />
       </Link>
 
-      <div className="w-full max-w-md bg-white rounded-lg shadow-md p-4 mt-8 mb-8 lg: w-2/3">
+      <div 
+      className="w-10/12 max-w-md lg:w-full bg-white rounded-lg shadow-md p-4 mt-8 mb-8">
         <p className="text-gray-800">{generatedKey}</p>
       </div>
 
-      <div className="flex flex-col lg:flex-row justify-between w-full max-w-7xl mx-auto px-4 lg: w-11/12">
+      <div className="flex flex-col lg:flex-row justify-between w-full max-w-7xl mx-auto px-4 lg:w-11/12 ">
         <div className="w-full lg:w-1/2 lg:mr-16">
           <p className="text-lightText mt-5 text-start">
             Change the query accordingly, refer to{" "}
@@ -84,7 +85,7 @@ const Demo = () => {
             .
           </p>
           <textarea
-            className="w-full h-48 bg-white rounded-lg text-lg shadow-md p-4 mt-4 mb-8 lg: text-sm lg: mb-4"
+            className="w-full h-48 bg-white rounded-lg text-sm shadow-md p-4 mt-4 mb-8 lg:text-lg lg:mb-4"
             value={userCode}
             onChange={(e) => setUserCode(e.target.value)}
           />
@@ -102,7 +103,7 @@ const Demo = () => {
             </div>
           </div>
         </div>
-        <div className="w-full lg:w-1/2 mt-8 lg:mt-0 lg: mb-4">
+        <div className="w-full lg:w-1/2 mt-8 lg:mt-0 lg:mb-4">
           <div className="h-96 bg-white rounded-lg shadow-md p-4 overflow-y-auto">
             <pre className="text-gray-800">{output}</pre>
           </div>
