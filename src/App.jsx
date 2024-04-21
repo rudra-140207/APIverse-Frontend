@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import Demo from "./components/Demo";
 import Landing from "./components/Landing";
 import Signup from "./components/Signup";
+import Dashboard from "./components/Dashboard";
 const App = () => {
   return (
     <Router>
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/demo" element={<Demo/>} />
         <Route path="/login" element={<Login/>} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
       <Footer />
     </Router>
