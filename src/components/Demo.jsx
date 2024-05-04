@@ -8,7 +8,7 @@ import axios from "axios";
 const Demo = () => {
   const [generatedKey, setGeneratedKey] = useState("Temp key");
   const [userCode, setUserCode] = useState(
-    `axios.get("http://localhost:4000/api/movie/query?year=2010&cast=akshay",{
+    `axios.get("https://apiverse-backend.onrender.com/api/movie/query?year=2010&cast=akshay",{
       headers : {
         auth_key : "place-auth-key-here"
       }
@@ -29,7 +29,7 @@ const Demo = () => {
 
   const handleReset = () => {
     setUserCode(
-      `axios.get("http://localhost:4000/api/movie/query?year=2010&cast=akshay",{
+      `axios.get("https://apiverse-backend.onrender.com/api/movie/query?year=2010&cast=akshay",{
       headers : {
         auth_key : "place-auth-key-here"
       }
