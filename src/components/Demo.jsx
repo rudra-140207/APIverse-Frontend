@@ -4,8 +4,10 @@ import Heading from "../layout/Heading";
 import { Link } from "react-router-dom";
 import reqUrl from "../service";
 import axios from "axios";
+import Loader from "./Loader";
 
 const Demo = () => {
+  const [loader,setLoader] = useState(false);
   const [generatedKey, setGeneratedKey] = useState("Temp key");
   const [userCode, setUserCode] = useState(
     `axios.get("https://apiverse-backend.onrender.com/api/movie/query?year=2010&cast=akshay",{
@@ -13,13 +15,21 @@ const Demo = () => {
         auth_key : "place-auth-key-here"
       }
     })`
+
+    // `axios.get("http://localhost:4000/api/movie/query?year=2010&cast=akshay",{
+    //   headers : {
+    //     auth_key : "place-auth-key-here"
+    //   }
+    // })`
   );
   const [output, setOutput] = useState("Output will be displayed here !!");
 
   const handleGenerateKey = () => {
+    setLoader(true);
     axios
       .get(`${reqUrl}/auth/key`)
       .then((res) => {
+        setLoader(false);
         setGeneratedKey(res.data.key);
       })
       .catch((err) => {
@@ -34,23 +44,34 @@ const Demo = () => {
         auth_key : "place-auth-key-here"
       }
     })`
+
+    // `axios.get("http://localhost:4000/api/movie/query?year=2010&cast=akshay",{
+    //   headers : {
+    //     auth_key : "place-auth-key-here"
+    //   }
+    // })`
     );
   };
 
   const handleGenerateOutput = () => {
+    setLoader(true);
     eval(userCode)
       .then((res) => {
+        setLoader(false);
         setOutput(JSON.stringify(res.data, null, 2));
       })
       .catch((err) => {
         console.log(err);
         if (err.response) {
+          setLoader(false);
           setOutput(
             `Request failed with status ${err.response.status}: ${err.response.data.message}`
           );
         } else if (err.request) {
+          setLoader(false);
           setOutput("Request failed: No response received, Check response URL");
         } else {
+          setLoader(false);
           setOutput("Request failed: " + err.message);
         }
       });
@@ -72,7 +93,9 @@ const Demo = () => {
 
       <div 
       className="w-10/12 max-w-md lg:w-full bg-white rounded-lg shadow-md p-4 mt-8 mb-8">
-        <p className="text-gray-800">{generatedKey}</p>
+        <p className="text-gray-800">
+          {loader ? <Loader /> : generatedKey }
+        </p>
       </div>
 
       <div className="flex flex-col lg:flex-row justify-between w-full max-w-7xl mx-auto px-4 lg:w-11/12 ">
@@ -105,7 +128,9 @@ const Demo = () => {
         </div>
         <div className="w-full lg:w-1/2 mt-8 lg:mt-0 lg:mb-4">
           <div className="h-96 bg-white rounded-lg shadow-md p-4 overflow-y-auto">
-            <pre className="text-gray-800">{output}</pre>
+            <pre className="text-gray-800">
+            {loader ? <Loader /> : output }
+            </pre>
           </div>
         </div>
       </div>
