@@ -8,6 +8,7 @@ import Loader from "./Loader";
 
 const Demo = () => {
   const [loader,setLoader] = useState(false);
+  const [keyLoader,setKeyLoader] = useState(false);
   const [generatedKey, setGeneratedKey] = useState("Temp key");
   const [userCode, setUserCode] = useState(
     `axios.get("https://apiverse-backend.onrender.com/api/movie/query?year=2010&cast=akshay",{
@@ -25,11 +26,11 @@ const Demo = () => {
   const [output, setOutput] = useState("Output will be displayed here !!");
 
   const handleGenerateKey = () => {
-    setLoader(true);
+    setKeyLoader(true);
     axios
       .get(`${reqUrl}/auth/key`)
       .then((res) => {
-        setLoader(false);
+        setKeyLoader(false);
         setGeneratedKey(res.data.key);
       })
       .catch((err) => {
@@ -94,7 +95,7 @@ const Demo = () => {
       <div 
       className="w-10/12 max-w-md lg:w-full bg-white rounded-lg shadow-md p-4 mt-8 mb-8">
         <p className="text-gray-800">
-          {loader ? <Loader /> : generatedKey }
+          {keyLoader ? <Loader /> : generatedKey }
         </p>
       </div>
 
