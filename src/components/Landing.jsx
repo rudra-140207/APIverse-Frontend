@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import Home from "./Home";
 import About from "./About";
-import Courses from "./Courses";
-import Reviews from "./Reviews";
 import axios from "axios";
 import reqUrl from "../service";
+import Advantages from "./Advantages";
+import Features from "./Features";
 
 const Landing = () => {
   useEffect(() => {
@@ -21,8 +21,8 @@ const Landing = () => {
     <div>
       <Home />
       <About />
-      <Courses />
-      <Reviews />
+      <Features />
+      <Advantages />
     </div>
   );
 };

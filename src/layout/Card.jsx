@@ -1,6 +1,6 @@
 import React from "react";
 
-const ReviewCard = (props) => {
+const Card = (props) => {
   return (
     <div className=" w-full md:w-1/3 bg-white border-2 border-lightText md:border-none p-5 rounded-lg hover:shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] transition-all">
       <div>
@@ -15,4 +15,4 @@ const ReviewCard = (props) => {
   );
 };
 
-export default ReviewCard;
+export default Card;

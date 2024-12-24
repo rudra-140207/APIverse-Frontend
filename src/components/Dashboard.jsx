@@ -2,7 +2,7 @@ import React from 'react'
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    <div>Dashboard is Under Production, will be available shortly.</div>
   )
 }
 
