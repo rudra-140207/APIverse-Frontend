@@ -11,17 +11,17 @@ const Demo = () => {
   const [keyLoader,setKeyLoader] = useState(false);
   const [generatedKey, setGeneratedKey] = useState("Temp key");
   const [userCode, setUserCode] = useState(
-    // `axios.get("https://apiverse-backend.onrender.com/api/movie/query?year=2010&cast=akshay",{
-    //   headers : {
-    //     auth_key : "place-auth-key-here"
-    //   }
-    // })`
-
-    `axios.get("http://localhost:4000/api/movie/query?year=2010&cast=akshay",{
+    `axios.get("https://apiverse-backend.onrender.com/api/movie/query?year=2010&cast=akshay",{
       headers : {
         auth_key : "place-auth-key-here"
       }
     })`
+
+    // `axios.get("http://localhost:4000/api/movie/query?year=2010&cast=akshay",{
+    //   headers : {
+    //     auth_key : "place-auth-key-here"
+    //   }
+    // })`
   );
   const [output, setOutput] = useState("Output will be displayed here !!");
 
@@ -40,17 +40,17 @@ const Demo = () => {
 
   const handleReset = () => {
     setUserCode(
-    //   `axios.get("https://apiverse-backend.onrender.com/api/movie/query?year=2010&cast=akshay",{
-    //   headers : {
-    //     auth_key : "place-auth-key-here"
-    //   }
-    // })`
-
-    `axios.get("http://localhost:4000/api/movie/query?year=2010&cast=akshay",{
+      `axios.get("https://apiverse-backend.onrender.com/api/movie/query?year=2010&cast=akshay",{
       headers : {
         auth_key : "place-auth-key-here"
       }
     })`
+
+    // `axios.get("http://localhost:4000/api/movie/query?year=2010&cast=akshay",{
+    //   headers : {
+    //     auth_key : "place-auth-key-here"
+    //   }
+    // })`
     );
   };
 
